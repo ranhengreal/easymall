@@ -95,7 +95,7 @@ npm run dev
 
 | 端 | 地址 | 账号 |
 |----|------|------|
-| 管理端 | http://localhost:5173 | admin / 123456 |
+| 管理端 | http://localhost:5173 | admin / admin123 |
 | 用户端 | http://localhost:5174 | 自行注册 |
 
 ---
