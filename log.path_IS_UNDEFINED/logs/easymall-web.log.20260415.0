@@ -1,0 +1,450 @@
+2026-04-15 12:03:47.405 [background-preinit] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2026-04-15 12:03:47.407 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-04-15 12:03:47.469 [main] INFO  com.easymall.EasyMallWebApplication - Starting EasyMallWebApplication using Java 21.0.8 with PID 3352 (D:\Java实践项目\workspace-teach\easymall-java\easymall-web\target\classes started by ranhengreal in D:\Java实践项目\workspace-teach)
+2026-04-15 12:03:47.470 [main] DEBUG com.easymall.EasyMallWebApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2026-04-15 12:03:47.471 [main] INFO  com.easymall.EasyMallWebApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 12:03:48.329 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:03:48.330 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:03:48.355 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 Elasticsearch repository interfaces.
+2026-04-15 12:03:48.360 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:03:48.360 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:03:48.367 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-04-15 12:03:48.377 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:03:48.378 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-15 12:03:48.390 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-04-15 12:03:48.471 [main] DEBUG o.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2026-04-15 12:03:48.584 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'brandMapper' defined in file [D:\Java实践项目\workspace-teach\easymall-java\easymall-common\target\classes\com\easymall\mapper\BrandMapper.class]: Invalid value type for attribute 'factoryBeanObjectType': java.lang.String
+2026-04-15 12:03:48.593 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-04-15 12:03:48.614 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Invalid bean definition with name 'brandMapper' defined in file [D:\Java实践项目\workspace-teach\easymall-java\easymall-common\target\classes\com\easymall\mapper\BrandMapper.class]: Invalid value type for attribute 'factoryBeanObjectType': java.lang.String
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryBean(AbstractAutowireCapableBeanFactory.java:864)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getType(AbstractBeanFactory.java:745)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAnnotationOnBean(DefaultListableBeanFactory.java:817)
+	at org.springframework.boot.sql.init.dependency.AnnotationDependsOnDatabaseInitializationDetector.detect(AnnotationDependsOnDatabaseInitializationDetector.java:36)
+	at org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor.detectDependsOnInitializationBeanNames(DatabaseInitializationDependencyConfigurer.java:152)
+	at org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor.postProcessBeanFactory(DatabaseInitializationDependencyConfigurer.java:115)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.easymall.EasyMallWebApplication.main(EasyMallWebApplication.java:28)
+2026-04-15 12:30:52.980 [background-preinit] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2026-04-15 12:30:52.982 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-04-15 12:30:53.025 [main] INFO  com.easymall.EasyMallWebApplication - Starting EasyMallWebApplication using Java 21.0.8 with PID 6016 (D:\Java实践项目\workspace-teach\easymall-java\easymall-web\target\classes started by ranhengreal in D:\Java实践项目\workspace-teach)
+2026-04-15 12:30:53.026 [main] DEBUG com.easymall.EasyMallWebApplication - Running with Spring Boot v3.2.10, Spring v6.1.13
+2026-04-15 12:30:53.026 [main] INFO  com.easymall.EasyMallWebApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 12:30:53.750 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:30:53.752 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:30:53.773 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Elasticsearch repository interfaces.
+2026-04-15 12:30:53.778 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:30:53.778 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:30:53.784 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-04-15 12:30:53.793 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:30:53.793 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-15 12:30:53.804 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-04-15 12:30:53.875 [main] DEBUG o.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2026-04-15 12:30:54.537 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6050 (http)
+2026-04-15 12:30:54.545 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-6050"]
+2026-04-15 12:30:54.548 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-15 12:30:54.549 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-04-15 12:30:54.607 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2026-04-15 12:30:54.608 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1531 ms
+2026-04-15 12:30:54.722 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+2026-04-15 12:30:54.789 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2026-04-15 12:30:54.807 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2026-04-15 12:30:54.812 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2026-04-15 12:30:54.813 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2026-04-15 12:30:54.816 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2026-04-15 12:30:54.816 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2026-04-15 12:30:54.819 [main] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@4348fa35
+2026-04-15 12:30:54.834 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2026-04-15 12:30:54.834 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2026-04-15 12:30:54.835 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2026-04-15 12:30:54.836 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2026-04-15 12:30:54.836 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2026-04-15 12:30:54.837 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2026-04-15 12:30:54.837 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2026-04-15 12:30:54.838 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2026-04-15 12:30:54.838 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @44a7bfbc
+2026-04-15 12:30:54.839 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2026-04-15 12:30:54.839 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2026-04-15 12:30:54.839 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\RANHEN~1\AppData\Local\Temp (java.io.tmpdir)
+2026-04-15 12:30:54.839 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2026-04-15 12:30:54.840 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: Windows
+2026-04-15 12:30:54.840 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2026-04-15 12:30:54.840 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2026-04-15 12:30:54.841 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2026-04-15 12:30:54.841 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2026-04-15 12:30:54.846 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2026-04-15 12:30:54.852 [main] DEBUG reactor.util.Loggers - Using Slf4j logging framework
+2026-04-15 12:30:55.170 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.BrandController:
+	{GET [/brand/enabled]}: getEnabledList()
+2026-04-15 12:30:55.173 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.CartController:
+	{DELETE [/cart/clear]}: clear(String)
+	{POST [/cart/add]}: add(Cart,String)
+	{DELETE [/cart/{cartId}]}: delete(String,String)
+	{GET [/cart]}: getList(String)
+	{PUT [/cart/selected/batch]}: batchUpdateSelected(List,Integer,String)
+	{PUT [/cart/{cartId}/selected]}: updateSelected(String,Integer,String)
+	{DELETE [/cart/batch]}: batchDelete(List,String)
+	{PUT [/cart/{cartId}/quantity]}: updateQuantity(String,Integer,String)
+2026-04-15 12:30:55.179 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.CategoryController:
+	{GET [/category/tree]}: getTree()
+2026-04-15 12:30:55.181 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.OrderController:
+	{PUT [/order/{orderId}/cancel]}: cancel(String,String,Map)
+	{POST [/order]}: create(Create,String)
+	{GET [/order/{orderId}]}: getById(String,String)
+	{PUT [/order/{orderId}/pay]}: updatePayStatus(String,Map,String)
+	{GET [/order/my]}: getMyOrders(String)
+	{PUT [/order/{orderId}/confirm]}: confirmReceive(String,String)
+2026-04-15 12:30:55.183 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.ProductController:
+	{GET [/product/list]}: getList()
+	{GET [/product/{productId}]}: getById(String)
+2026-04-15 12:30:55.184 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.UploadController:
+	{POST [/api/upload/avatar]}: uploadAvatar(MultipartFile)
+	{POST [/api/upload/review]}: uploadReviewImage(MultipartFile)
+2026-04-15 12:30:55.186 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.UserController:
+	{POST [/user/register]}: register(Register)
+	{GET [/user/info]}: getInfo(String)
+	{POST [/user/logout]}: logout(String)
+	{POST [/user/login]}: login(String,String,String,String)
+	{GET [/user/checkCode]}: checkCode()
+	{PUT [/user/password]}: changePassword(String,ChangePassword)
+	{PUT [/user/info]}: updateProfile(String,UpdateProfile)
+2026-04-15 12:30:55.187 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-04-15 12:30:55.194 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 'beanNameHandlerMapping' {}
+2026-04-15 12:30:55.211 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]], /uploads/**=ResourceHttpRequestHandler [URL [file:D:/Java实践项目/workspace-teach/easymall-java/easymall-uploads/]]}
+2026-04-15 12:30:55.699 [main] WARN  o.s.m.p.s.SyncMcpSamplingProvider - No sampling methods found
+2026-04-15 12:30:55.700 [main] WARN  o.s.m.p.e.SyncMcpElicitationProvider - No elicitation methods found
+2026-04-15 12:30:55.710 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-6050"]
+2026-04-15 12:30:55.719 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6050 (http) with context path '/api'
+2026-04-15 12:30:55.725 [main] INFO  com.easymall.EasyMallWebApplication - Started EasyMallWebApplication in 3.232 seconds (process running for 3.797)
+2026-04-15 12:41:48.729 [SpringApplicationShutdownHook] DEBUG o.a.h.i.n.c.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+2026-04-15 12:41:48.730 [SpringApplicationShutdownHook] DEBUG o.a.h.i.n.c.PoolingNHttpClientConnectionManager - Connection manager shut down
+2026-04-15 12:41:53.171 [background-preinit] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2026-04-15 12:41:53.173 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-04-15 12:41:53.209 [main] INFO  com.easymall.EasyMallWebApplication - Starting EasyMallWebApplication using Java 21.0.8 with PID 2728 (D:\Java实践项目\workspace-teach\easymall-java\easymall-web\target\classes started by ranhengreal in D:\Java实践项目\workspace-teach)
+2026-04-15 12:41:53.209 [main] DEBUG com.easymall.EasyMallWebApplication - Running with Spring Boot v3.2.10, Spring v6.1.13
+2026-04-15 12:41:53.210 [main] INFO  com.easymall.EasyMallWebApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 12:41:53.914 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:41:53.916 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:41:53.938 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 Elasticsearch repository interfaces.
+2026-04-15 12:41:53.943 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:41:53.943 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:41:53.949 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-04-15 12:41:53.959 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:41:53.960 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-15 12:41:53.971 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-04-15 12:41:54.047 [main] DEBUG o.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2026-04-15 12:41:54.731 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6050 (http)
+2026-04-15 12:41:54.740 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-6050"]
+2026-04-15 12:41:54.743 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-15 12:41:54.743 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-04-15 12:41:54.801 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2026-04-15 12:41:54.802 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1555 ms
+2026-04-15 12:41:54.915 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+2026-04-15 12:41:54.982 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2026-04-15 12:41:55.000 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2026-04-15 12:41:55.005 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2026-04-15 12:41:55.006 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2026-04-15 12:41:55.009 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2026-04-15 12:41:55.009 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2026-04-15 12:41:55.011 [main] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@4348fa35
+2026-04-15 12:41:55.026 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2026-04-15 12:41:55.026 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2026-04-15 12:41:55.027 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2026-04-15 12:41:55.028 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2026-04-15 12:41:55.028 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2026-04-15 12:41:55.028 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2026-04-15 12:41:55.030 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2026-04-15 12:41:55.030 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2026-04-15 12:41:55.031 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @44a7bfbc
+2026-04-15 12:41:55.032 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2026-04-15 12:41:55.032 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2026-04-15 12:41:55.032 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\RANHEN~1\AppData\Local\Temp (java.io.tmpdir)
+2026-04-15 12:41:55.032 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2026-04-15 12:41:55.032 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: Windows
+2026-04-15 12:41:55.032 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2026-04-15 12:41:55.032 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2026-04-15 12:41:55.033 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2026-04-15 12:41:55.033 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2026-04-15 12:41:55.039 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2026-04-15 12:41:55.045 [main] DEBUG reactor.util.Loggers - Using Slf4j logging framework
+2026-04-15 12:41:55.360 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.BrandController:
+	{GET [/brand/enabled]}: getEnabledList()
+2026-04-15 12:41:55.363 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.CartController:
+	{DELETE [/cart/clear]}: clear(String)
+	{POST [/cart/add]}: add(Cart,String)
+	{DELETE [/cart/{cartId}]}: delete(String,String)
+	{GET [/cart]}: getList(String)
+	{PUT [/cart/selected/batch]}: batchUpdateSelected(List,Integer,String)
+	{DELETE [/cart/batch]}: batchDelete(List,String)
+	{PUT [/cart/{cartId}/quantity]}: updateQuantity(String,Integer,String)
+	{PUT [/cart/{cartId}/selected]}: updateSelected(String,Integer,String)
+2026-04-15 12:41:55.369 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.CategoryController:
+	{GET [/category/tree]}: getTree()
+2026-04-15 12:41:55.371 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.OrderController:
+	{PUT [/order/{orderId}/cancel]}: cancel(String,String,Map)
+	{POST [/order]}: create(Create,String)
+	{GET [/order/{orderId}]}: getById(String,String)
+	{GET [/order/my]}: getMyOrders(String)
+	{PUT [/order/{orderId}/confirm]}: confirmReceive(String,String)
+	{PUT [/order/{orderId}/pay]}: updatePayStatus(String,Map,String)
+2026-04-15 12:41:55.373 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.ProductController:
+	{GET [/product/list]}: getList()
+	{GET [/product/{productId}]}: getById(String)
+2026-04-15 12:41:55.374 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.UploadController:
+	{POST [/api/upload/review]}: uploadReviewImage(MultipartFile)
+	{POST [/api/upload/avatar]}: uploadAvatar(MultipartFile)
+2026-04-15 12:41:55.376 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.UserController:
+	{POST [/user/register]}: register(Register)
+	{GET [/user/info]}: getInfo(String)
+	{POST [/user/login]}: login(String,String,String,String)
+	{POST [/user/logout]}: logout(String)
+	{GET [/user/checkCode]}: checkCode()
+	{PUT [/user/password]}: changePassword(String,ChangePassword)
+	{PUT [/user/info]}: updateProfile(String,UpdateProfile)
+2026-04-15 12:41:55.377 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-04-15 12:41:55.384 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 'beanNameHandlerMapping' {}
+2026-04-15 12:41:55.400 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]], /uploads/**=ResourceHttpRequestHandler [URL [file:D:/Java实践项目/workspace-teach/easymall-java/easymall-uploads/]]}
+2026-04-15 12:41:55.890 [main] WARN  o.s.m.p.s.SyncMcpSamplingProvider - No sampling methods found
+2026-04-15 12:41:55.891 [main] WARN  o.s.m.p.e.SyncMcpElicitationProvider - No elicitation methods found
+2026-04-15 12:41:55.901 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-6050"]
+2026-04-15 12:41:55.910 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6050 (http) with context path '/api'
+2026-04-15 12:41:55.917 [main] INFO  com.easymall.EasyMallWebApplication - Started EasyMallWebApplication in 3.215 seconds (process running for 3.768)
+2026-04-15 12:46:35.561 [SpringApplicationShutdownHook] DEBUG o.a.h.i.n.c.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+2026-04-15 12:46:35.562 [SpringApplicationShutdownHook] DEBUG o.a.h.i.n.c.PoolingNHttpClientConnectionManager - Connection manager shut down
+2026-04-15 12:46:40.522 [background-preinit] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2026-04-15 12:46:40.523 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-04-15 12:46:40.560 [main] INFO  com.easymall.EasyMallWebApplication - Starting EasyMallWebApplication using Java 21.0.8 with PID 12088 (D:\Java实践项目\workspace-teach\easymall-java\easymall-web\target\classes started by ranhengreal in D:\Java实践项目\workspace-teach)
+2026-04-15 12:46:40.560 [main] DEBUG com.easymall.EasyMallWebApplication - Running with Spring Boot v3.2.10, Spring v6.1.13
+2026-04-15 12:46:40.560 [main] INFO  com.easymall.EasyMallWebApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 12:46:41.258 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:46:41.260 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:46:41.280 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Elasticsearch repository interfaces.
+2026-04-15 12:46:41.285 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:46:41.286 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:46:41.292 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-04-15 12:46:41.300 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:46:41.301 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-15 12:46:41.311 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-04-15 12:46:41.384 [main] DEBUG o.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2026-04-15 12:46:42.072 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6050 (http)
+2026-04-15 12:46:42.081 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-6050"]
+2026-04-15 12:46:42.084 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-15 12:46:42.084 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-04-15 12:46:42.142 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2026-04-15 12:46:42.143 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1538 ms
+2026-04-15 12:46:42.194 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2026-04-15 12:46:42.210 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2026-04-15 12:46:42.215 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2026-04-15 12:46:42.216 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2026-04-15 12:46:42.219 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2026-04-15 12:46:42.219 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2026-04-15 12:46:42.220 [main] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@d85b399
+2026-04-15 12:46:42.234 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2026-04-15 12:46:42.234 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2026-04-15 12:46:42.235 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2026-04-15 12:46:42.236 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2026-04-15 12:46:42.236 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2026-04-15 12:46:42.236 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2026-04-15 12:46:42.237 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2026-04-15 12:46:42.237 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2026-04-15 12:46:42.238 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @44a7bfbc
+2026-04-15 12:46:42.239 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2026-04-15 12:46:42.239 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2026-04-15 12:46:42.239 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\RANHEN~1\AppData\Local\Temp (java.io.tmpdir)
+2026-04-15 12:46:42.239 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2026-04-15 12:46:42.239 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: Windows
+2026-04-15 12:46:42.239 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2026-04-15 12:46:42.239 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2026-04-15 12:46:42.241 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2026-04-15 12:46:42.241 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2026-04-15 12:46:42.246 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2026-04-15 12:46:42.252 [main] DEBUG reactor.util.Loggers - Using Slf4j logging framework
+2026-04-15 12:46:42.450 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+2026-04-15 12:46:42.677 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.BrandController:
+	{GET [/brand/enabled]}: getEnabledList()
+2026-04-15 12:46:42.680 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.CartController:
+	{DELETE [/cart/clear]}: clear(String)
+	{POST [/cart/add]}: add(Cart,String)
+	{DELETE [/cart/{cartId}]}: delete(String,String)
+	{GET [/cart]}: getList(String)
+	{PUT [/cart/selected/batch]}: batchUpdateSelected(List,Integer,String)
+	{PUT [/cart/{cartId}/quantity]}: updateQuantity(String,Integer,String)
+	{DELETE [/cart/batch]}: batchDelete(List,String)
+	{PUT [/cart/{cartId}/selected]}: updateSelected(String,Integer,String)
+2026-04-15 12:46:42.686 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.CategoryController:
+	{GET [/category/tree]}: getTree()
+2026-04-15 12:46:42.688 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.OrderController:
+	{PUT [/order/{orderId}/cancel]}: cancel(String,String,Map)
+	{POST [/order]}: create(Create,String)
+	{GET [/order/{orderId}]}: getById(String,String)
+	{GET [/order/my]}: getMyOrders(String)
+	{PUT [/order/{orderId}/confirm]}: confirmReceive(String,String)
+	{PUT [/order/{orderId}/pay]}: updatePayStatus(String,Map,String)
+2026-04-15 12:46:42.690 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.ProductController:
+	{GET [/product/list]}: getList()
+	{GET [/product/{productId}]}: getById(String)
+2026-04-15 12:46:42.691 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.UploadController:
+	{POST [/api/upload/avatar]}: uploadAvatar(MultipartFile)
+	{POST [/api/upload/review]}: uploadReviewImage(MultipartFile)
+2026-04-15 12:46:42.693 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.UserController:
+	{POST [/user/register]}: register(Register)
+	{GET [/user/info]}: getInfo(String)
+	{GET [/user/checkCode]}: checkCode()
+	{POST [/user/logout]}: logout(String)
+	{POST [/user/login]}: login(String,String,String,String)
+	{PUT [/user/password]}: changePassword(String,ChangePassword)
+	{PUT [/user/info]}: updateProfile(String,UpdateProfile)
+2026-04-15 12:46:42.694 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-04-15 12:46:42.701 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 'beanNameHandlerMapping' {}
+2026-04-15 12:46:42.718 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]], /uploads/**=ResourceHttpRequestHandler [URL [file:D:/Java实践项目/workspace-teach/easymall-java/easymall-uploads/]]}
+2026-04-15 12:46:43.208 [main] WARN  o.s.m.p.s.SyncMcpSamplingProvider - No sampling methods found
+2026-04-15 12:46:43.209 [main] WARN  o.s.m.p.e.SyncMcpElicitationProvider - No elicitation methods found
+2026-04-15 12:46:43.219 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-6050"]
+2026-04-15 12:46:43.229 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6050 (http) with context path '/api'
+2026-04-15 12:46:43.235 [main] INFO  com.easymall.EasyMallWebApplication - Started EasyMallWebApplication in 3.259 seconds (process running for 3.849)
+2026-04-15 12:50:23.554 [SpringApplicationShutdownHook] DEBUG o.a.h.i.n.c.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+2026-04-15 12:50:23.554 [SpringApplicationShutdownHook] DEBUG o.a.h.i.n.c.PoolingNHttpClientConnectionManager - Connection manager shut down
+2026-04-15 12:50:26.755 [background-preinit] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2026-04-15 12:50:26.757 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-04-15 12:50:26.798 [main] INFO  com.easymall.EasyMallWebApplication - Starting EasyMallWebApplication using Java 21.0.8 with PID 14160 (D:\Java实践项目\workspace-teach\easymall-java\easymall-web\target\classes started by ranhengreal in D:\Java实践项目\workspace-teach)
+2026-04-15 12:50:26.798 [main] DEBUG com.easymall.EasyMallWebApplication - Running with Spring Boot v3.2.10, Spring v6.1.13
+2026-04-15 12:50:26.798 [main] INFO  com.easymall.EasyMallWebApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-15 12:50:27.489 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:50:27.491 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:50:27.510 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Elasticsearch repository interfaces.
+2026-04-15 12:50:27.516 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:50:27.516 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-04-15 12:50:27.522 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-04-15 12:50:27.531 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-15 12:50:27.532 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-15 12:50:27.542 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2026-04-15 12:50:27.612 [main] DEBUG o.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2026-04-15 12:50:28.272 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 6050 (http)
+2026-04-15 12:50:28.281 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-6050"]
+2026-04-15 12:50:28.284 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-15 12:50:28.285 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-04-15 12:50:28.342 [main] INFO  o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2026-04-15 12:50:28.342 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1498 ms
+2026-04-15 12:50:28.402 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2026-04-15 12:50:28.418 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2026-04-15 12:50:28.423 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2026-04-15 12:50:28.423 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2026-04-15 12:50:28.427 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2026-04-15 12:50:28.427 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2026-04-15 12:50:28.429 [main] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1d55dd21
+2026-04-15 12:50:28.444 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2026-04-15 12:50:28.444 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2026-04-15 12:50:28.445 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2026-04-15 12:50:28.445 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2026-04-15 12:50:28.445 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2026-04-15 12:50:28.446 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2026-04-15 12:50:28.446 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2026-04-15 12:50:28.446 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2026-04-15 12:50:28.447 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @44a7bfbc
+2026-04-15 12:50:28.447 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2026-04-15 12:50:28.447 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2026-04-15 12:50:28.447 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\RANHEN~1\AppData\Local\Temp (java.io.tmpdir)
+2026-04-15 12:50:28.447 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2026-04-15 12:50:28.448 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: Windows
+2026-04-15 12:50:28.448 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2026-04-15 12:50:28.448 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2026-04-15 12:50:28.450 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2026-04-15 12:50:28.450 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2026-04-15 12:50:28.454 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2026-04-15 12:50:28.460 [main] DEBUG reactor.util.Loggers - Using Slf4j logging framework
+2026-04-15 12:50:28.659 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+2026-04-15 12:50:28.887 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.BrandController:
+	{GET [/brand/enabled]}: getEnabledList()
+2026-04-15 12:50:28.889 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.CartController:
+	{DELETE [/cart/clear]}: clear(String)
+	{POST [/cart/add]}: add(Cart,String)
+	{DELETE [/cart/{cartId}]}: delete(String,String)
+	{GET [/cart]}: getList(String)
+	{PUT [/cart/selected/batch]}: batchUpdateSelected(List,Integer,String)
+	{PUT [/cart/{cartId}/selected]}: updateSelected(String,Integer,String)
+	{PUT [/cart/{cartId}/quantity]}: updateQuantity(String,Integer,String)
+	{DELETE [/cart/batch]}: batchDelete(List,String)
+2026-04-15 12:50:28.896 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.CategoryController:
+	{GET [/category/tree]}: getTree()
+2026-04-15 12:50:28.897 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.OrderController:
+	{PUT [/order/{orderId}/cancel]}: cancel(String,String,Map)
+	{POST [/order]}: create(Create,String)
+	{GET [/order/{orderId}]}: getById(String,String)
+	{PUT [/order/{orderId}/confirm]}: confirmReceive(String,String)
+	{GET [/order/my]}: getMyOrders(String)
+	{PUT [/order/{orderId}/pay]}: updatePayStatus(String,Map,String)
+2026-04-15 12:50:28.900 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.ProductController:
+	{GET [/product/list]}: getList()
+	{GET [/product/{productId}]}: getById(String)
+2026-04-15 12:50:28.900 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.UploadController:
+	{POST [/api/upload/review]}: uploadReviewImage(MultipartFile)
+	{POST [/api/upload/avatar]}: uploadAvatar(MultipartFile)
+2026-04-15 12:50:28.902 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.c.UserController:
+	{POST [/user/register]}: register(Register)
+	{GET [/user/info]}: getInfo(String)
+	{POST [/user/logout]}: logout(String)
+	{POST [/user/login]}: login(String,String,String,String)
+	{PUT [/user/info]}: updateProfile(String,UpdateProfile)
+	{PUT [/user/password]}: changePassword(String,ChangePassword)
+	{GET [/user/checkCode]}: checkCode()
+2026-04-15 12:50:28.904 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2026-04-15 12:50:28.911 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 'beanNameHandlerMapping' {}
+2026-04-15 12:50:28.928 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]], /uploads/**=ResourceHttpRequestHandler [URL [file:D:/Java实践项目/workspace-teach/easymall-java/easymall-uploads/]]}
+2026-04-15 12:50:29.423 [main] WARN  o.s.m.p.s.SyncMcpSamplingProvider - No sampling methods found
+2026-04-15 12:50:29.423 [main] WARN  o.s.m.p.e.SyncMcpElicitationProvider - No elicitation methods found
+2026-04-15 12:50:29.433 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-6050"]
+2026-04-15 12:50:29.443 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 6050 (http) with context path '/api'
+2026-04-15 12:50:29.448 [main] INFO  com.easymall.EasyMallWebApplication - Started EasyMallWebApplication in 3.167 seconds (process running for 3.73)
+2026-04-15 13:21:31.715 [SpringApplicationShutdownHook] DEBUG o.a.h.i.n.c.PoolingNHttpClientConnectionManager - Connection manager is shutting down
+2026-04-15 13:21:31.716 [SpringApplicationShutdownHook] DEBUG o.a.h.i.n.c.PoolingNHttpClientConnectionManager - Connection manager shut down

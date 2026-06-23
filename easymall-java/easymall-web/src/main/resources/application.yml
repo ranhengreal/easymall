@@ -1,0 +1,39 @@
+server:
+  port: 6050
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: easymall-web
+
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.vectorstore.elasticsearch.autoconfigure.ElasticsearchVectorStoreAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/easymall?allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2B8&characterEncoding=utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+    elasticsearch:
+      uris: http://localhost:9200
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.easymall.entity.po
+
+app:
+  admin-account: admin
+  admin-password: 123456
+
+# 上传文件绝对路径
+upload:
+  path: ${user.dir}/easymall-uploads

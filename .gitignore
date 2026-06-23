@@ -1,0 +1,15 @@
+# 后端
+**/target/
+**/.idea/
+**/*.iml
+**/.mvn/
+
+# 前端
+**/node_modules/
+**/dist/
+**/.vscode/
+
+# 系统
+.DS_Store
+Thumbs.db
+*.log
