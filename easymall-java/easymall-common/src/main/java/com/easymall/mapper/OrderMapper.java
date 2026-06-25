@@ -4,6 +4,7 @@ import com.easymall.entity.po.Order;
 import org.apache.ibatis.annotations.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
@@ -71,7 +72,7 @@ public interface OrderMapper {
             "pay_type = #{payType} WHERE order_id = #{orderId}")
     int updatePayStatus(@Param("orderId") String orderId,
                         @Param("payStatus") Integer payStatus,
-                        @Param("payTime") java.time.LocalDateTime payTime,
+                        @Param("payTime") LocalDateTime payTime,
                         @Param("payType") Integer payType);
 
     @Delete("DELETE FROM orders WHERE order_id = #{orderId}")
@@ -119,4 +120,25 @@ public interface OrderMapper {
     int ship(@Param("orderId") String orderId,
              @Param("logisticsCompany") String logisticsCompany,
              @Param("trackingNumber") String trackingNumber);
+
+    /**
+     * 支付订单：更新订单状态为待发货，更新支付状态和支付时间
+     */
+    @Update("UPDATE orders SET order_status = #{orderStatus}, " +
+            "pay_status = #{payStatus}, pay_time = #{payTime} " +
+            "WHERE order_id = #{orderId}")
+    int pay(@Param("orderId") String orderId,
+            @Param("orderStatus") Integer orderStatus,
+            @Param("payStatus") Integer payStatus,
+            @Param("payTime") LocalDateTime payTime);
+
+    /**
+     * 确认收货：更新订单状态为已完成，记录收货时间
+     */
+    @Update("UPDATE orders SET order_status = #{orderStatus}, " +
+            "receive_time = #{receiveTime} " +
+            "WHERE order_id = #{orderId}")
+    int confirmReceiveOrder(@Param("orderId") String orderId,
+                            @Param("orderStatus") Integer orderStatus,
+                            @Param("receiveTime") LocalDateTime receiveTime);
 }

@@ -1,11 +1,14 @@
-import request from '@/utils/request'
+﻿import request from '@/utils/request'
 
+// 商品基础类型
 export interface Product {
     productId: string
     productName: string
     price: number
+    originalPrice?: number
     stock: number
     mainImage: string
+    images?: string[]
     categoryId: string
     categoryName: string
     brandId: string
@@ -13,16 +16,28 @@ export interface Product {
     status: number
     sales: number
     description?: string
+    parameters?: Record<string, string>
+    skuList?: SkuItem[]
 }
 
+// SKU 规格项
+export interface SkuItem {
+    specValues: string
+    price: number
+    stock: number
+    image?: string
+}
+
+// 商品列表查询参数
 export interface ProductListParams {
     pageNum?: number
     pageSize?: number
     categoryId?: string
     keyword?: string
-    orderBy?: string  // price_asc, price_desc, sales, default
+    orderBy?: string
 }
 
+// 商品列表响应
 export interface ProductListResponse {
     records: Product[]
     total: number
@@ -30,7 +45,7 @@ export interface ProductListResponse {
     pageSize: number
 }
 
-// 获取商品列表（支持分页、分类、搜索、排序）
+// 获取商品列表
 export const getProductList = (params: ProductListParams): Promise<ProductListResponse> => {
     return request.get('/product/list', { params })
 }

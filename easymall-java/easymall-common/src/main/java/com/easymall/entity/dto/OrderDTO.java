@@ -122,6 +122,7 @@ public class OrderDTO {
         private BigDecimal discountAmount;
         private BigDecimal freightAmount;
         private BigDecimal payAmount;
+        private BigDecimal productTotal;
         private Integer payType;
         private Integer payStatus;
         private LocalDateTime payTime;
@@ -138,6 +139,8 @@ public class OrderDTO {
         private String cancelReason;
         private LocalDateTime createTime;
         private LocalDateTime updateTime;
+        private LocalDateTime shipTime;
+        private LocalDateTime receiveTime;
         private List<OrderItemResponse> items;
         private String remark;
 
@@ -152,6 +155,7 @@ public class OrderDTO {
             response.setDiscountAmount(po.getDiscountAmount());
             response.setFreightAmount(po.getFreightAmount());
             response.setPayAmount(po.getPayAmount());
+            response.setProductTotal(po.getTotalAmount());
             response.setPayType(po.getPayType());
             response.setPayStatus(po.getPayStatus());
             response.setPayTime(po.getPayTime());
@@ -168,6 +172,8 @@ public class OrderDTO {
             response.setCreateTime(po.getCreateTime());
             response.setUpdateTime(po.getUpdateTime());
             response.setRemark(po.getRemark());
+            response.setShipTime(po.getShipTime());
+            response.setReceiveTime(po.getReceiveTime());
 
             // 设置订单状态名称
             String[] statusNames = {"待付款", "待发货", "待收货", "已完成", "已取消", "售后中"};

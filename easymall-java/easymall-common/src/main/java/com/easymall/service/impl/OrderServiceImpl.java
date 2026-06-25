@@ -367,7 +367,56 @@ public class OrderServiceImpl implements OrderService {
         return result > 0;
     }
 
-    // ==================== 辅助方法 ====================
+        // ==================== 用户端支付/确认 ====================
+
+    @Override
+    @Transactional
+    public void pay(String orderId, String userId) {
+        Order existing = orderMapper.selectById(orderId);
+        if (existing == null) {
+            throw new BusinessException(404, "订单不存在");
+        }
+
+        if (!existing.getUserId().equals(userId)) {
+            throw new BusinessException(403, "无权操作");
+        }
+
+        if (existing.getOrderStatus() != Constants.ORDER_STATUS_WAIT_PAY) {
+            throw new BusinessException("当前订单状态不支持支付");
+        }
+
+        LocalDateTime now = LocalDateTime.now();
+        orderMapper.pay(orderId, Constants.ORDER_STATUS_WAIT_SHIP, Constants.PAY_STATUS_PAID, now);
+
+        clearCache();
+        clearOrderCache(orderId);
+        log.info("支付成功: orderId={}, userId={}", orderId, userId);
+    }
+
+    @Override
+    @Transactional
+    public void confirm(String orderId, String userId) {
+        Order existing = orderMapper.selectById(orderId);
+        if (existing == null) {
+            throw new BusinessException(404, "订单不存在");
+        }
+
+        if (!existing.getUserId().equals(userId)) {
+            throw new BusinessException(403, "无权操作");
+        }
+
+        if (existing.getOrderStatus() != Constants.ORDER_STATUS_WAIT_RECEIVE) {
+            throw new BusinessException("当前订单状态无法确认收货");
+        }
+
+        LocalDateTime now = LocalDateTime.now();
+        orderMapper.confirmReceiveOrder(orderId, Constants.ORDER_STATUS_COMPLETED, now);
+
+        clearCache();
+        clearOrderCache(orderId);
+        log.info("确认收货成功: orderId={}, userId={}", orderId, userId);
+    }
+// ==================== 辅助方法 ====================
 
     /**
      * 校验订单状态流转

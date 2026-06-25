@@ -122,49 +122,19 @@ public class OrderController {
                                          @CurrentUserId String userId) {
         log.info("用户确认收货: userId={}, orderId={}", userId, orderId);
 
-        Order order = orderService.getById(orderId);
-        if (order == null) {
-            return Result.error(404, "订单不存在");
-        }
-
-        if (!order.getUserId().equals(userId)) {
-            return Result.error(403, "无权操作此订单");
-        }
-
-        if (order.getOrderStatus() != Constants.ORDER_STATUS_WAIT_RECEIVE) {
-            return Result.error(400, "当前订单状态无法确认收货");
-        }
-
-        boolean success = orderService.confirmReceive(orderId);
-        if (success) {
-            return Result.success("确认收货成功");
-        }
-        return Result.error("确认收货失败");
+        orderService.confirm(orderId, userId);
+        return Result.success("确认收货成功");
     }
 
     /**
-     * 支付回调（更新支付状态）
+     * 支付订单
      */
     @PutMapping("/{orderId}/pay")
-    public Result<String> updatePayStatus(@PathVariable String orderId,
-                                          @RequestBody Map<String, Object> body,
-                                          @CurrentUserId String userId) {
-        Integer payStatus = (Integer) body.get("payStatus");
-        Integer payType = (Integer) body.get("payType");
+    public Result<String> pay(@PathVariable String orderId,
+                              @CurrentUserId String userId) {
+        log.info("用户支付订单: userId={}, orderId={}", userId, orderId);
 
-        Order order = orderService.getById(orderId);
-        if (order == null) {
-            return Result.error(404, "订单不存在");
-        }
-
-        if (!order.getUserId().equals(userId)) {
-            return Result.error(403, "无权操作此订单");
-        }
-
-        boolean success = orderService.updatePayStatus(orderId, payStatus, payType);
-        if (success) {
-            return Result.success("支付状态更新成功");
-        }
-        return Result.error("支付状态更新失败");
+        orderService.pay(orderId, userId);
+        return Result.success("支付成功");
     }
 }

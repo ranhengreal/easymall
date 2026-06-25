@@ -16,6 +16,7 @@ import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -31,7 +32,6 @@ public class CartServiceImpl implements CartService {
     @Resource
     private ProductSkuMapper productSkuMapper;
 
-    // ==================== 新增：归属校验方法 ====================
     private void assertCartOwner(String cartId, String userId) {
         Cart cart = cartMapper.selectById(cartId);
         if (cart == null) {
@@ -55,6 +55,15 @@ public class CartServiceImpl implements CartService {
     @Override
     @Transactional
     public boolean add(Cart cart, String userId) {
+        if (cart.getQuantity() == null || cart.getQuantity() <= 0) {
+            log.warn("购物车添加时 quantity 为 null 或无效，默认设为 1: userId={}", userId);
+            cart.setQuantity(1);
+        }
+
+        if (!StringUtils.hasText(cart.getProductId())) {
+            throw new BusinessException("商品ID不能为空");
+        }
+
         Product product = productMapper.selectById(cart.getProductId());
         if (product == null) {
             throw new BusinessException("商品不存在");
@@ -65,20 +74,24 @@ public class CartServiceImpl implements CartService {
             if (sku == null) {
                 throw new BusinessException("商品规格不存在");
             }
-            cart.setSpecValues(sku.getSpecValues());
-            cart.setPrice(sku.getPrice());
+            cart.setSpecValues(sku.getSpecValues() != null ? sku.getSpecValues() : "");
+            cart.setPrice(sku.getPrice() != null ? sku.getPrice() : BigDecimal.ZERO);
         } else {
-            cart.setPrice(product.getPrice());
+            cart.setPrice(product.getPrice() != null ? product.getPrice() : BigDecimal.ZERO);
+            cart.setSpecValues("");
         }
 
         cart.setUserId(userId);
-        cart.setProductName(product.getProductName());
-        cart.setProductImage(product.getMainImage());
-        cart.setSelected(0);
+        cart.setProductName(product.getProductName() != null ? product.getProductName() : "");
+        cart.setProductImage(product.getMainImage() != null ? product.getMainImage() : "");
+        cart.setSelected(cart.getSelected() != null ? cart.getSelected() : 0);
 
         Cart existing = cartMapper.selectByProduct(userId, cart.getProductId(), cart.getSkuId());
         if (existing != null) {
-            int newQuantity = existing.getQuantity() + cart.getQuantity();
+            int existingQty = existing.getQuantity() != null ? existing.getQuantity() : 0;
+            int newQuantity = existingQty + cart.getQuantity();
+            log.info("购物车已有同商品，合并数量: cartId={}, oldQty={}, addQty={}, newQty={}",
+                    existing.getCartId(), existingQty, cart.getQuantity(), newQuantity);
             return cartMapper.updateQuantity(existing.getCartId(), newQuantity) > 0;
         } else {
             cart.setCartId(generateCartId());
@@ -92,7 +105,6 @@ public class CartServiceImpl implements CartService {
         }
     }
 
-    // ==================== 修改：增加 userId 参数 ====================
     @Override
     public boolean updateQuantity(String cartId, Integer quantity, String userId) {
         assertCartOwner(cartId, userId);

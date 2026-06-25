@@ -52,7 +52,7 @@ public interface OrderService {
     boolean cancel(String orderId, String cancelReason);
 
     /**
-     * 确认收货
+     * 确认收货（不含归属校验，供内部调用）
      */
     boolean confirmReceive(String orderId);
 
@@ -71,4 +71,15 @@ public interface OrderService {
      */
     boolean ship(String orderId, String logisticsCompany, String trackingNumber);
 
+    // ==================== 用户端支付/确认 ====================
+
+    /**
+     * 用户支付订单：校验订单归属和状态后，更新为待发货并记录支付时间
+     */
+    void pay(String orderId, String userId);
+
+    /**
+     * 用户确认收货：校验订单归属和状态后，更新为已完成并记录收货时间
+     */
+    void confirm(String orderId, String userId);
 }
