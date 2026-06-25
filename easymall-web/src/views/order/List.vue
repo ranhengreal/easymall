@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="order-page">
     <div class="container">
       <h2 class="page-title">我的订单</h2>
@@ -31,22 +31,22 @@
           >
             <div class="order-header">
               <div class="order-info">
-                <span class="order-no">订单号：{{ order.orderNo }}</span>
+                <span class="order-no">订单号：{{ order.orderSn }}</span>
                 <span class="order-time">{{ order.createTime }}</span>
               </div>
               <el-tag
-                :type="getStatusTagType(order.status)"
+                :type="getStatusTagType(order.orderStatus)"
                 size="small"
                 effect="dark"
               >
-                {{ order.statusText }}
+                {{ order.orderStatusName }}
               </el-tag>
             </div>
 
             <div class="order-body">
               <div class="product-thumbs">
                 <div
-                  v-for="(item, index) in order.orderItems.slice(0, 3)"
+                  v-for="(item, index) in order.items.slice(0, 3)"
                   :key="index"
                   class="thumb-item"
                 >
@@ -56,12 +56,12 @@
                     @error="handleImageError"
                   />
                 </div>
-                <div v-if="order.orderItems.length > 3" class="thumb-more">
-                  +{{ order.orderItems.length - 3 }}
+                <div v-if="order.items.length > 3" class="thumb-more">
+                  +{{ order.items.length - 3 }}
                 </div>
               </div>
               <div class="order-summary">
-                <span class="product-count">共 {{ order.orderItems.length }} 件商品</span>
+                <span class="product-count">共 {{ order.items.length }} 件商品</span>
                 <span class="order-amount">
                   合计：<em>¥{{ order.totalAmount?.toFixed(2) }}</em>
                 </span>

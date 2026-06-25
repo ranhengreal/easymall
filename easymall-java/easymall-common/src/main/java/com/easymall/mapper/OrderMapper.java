@@ -45,6 +45,32 @@ public interface OrderMapper {
     @Select("SELECT MAX(order_id) FROM orders")
     String getMaxOrderId();
 
+    
+    // ==================== 用户端分页查询 ====================
+
+    /**
+     * 根据用户ID查询订单列表（分页 + 状态筛选）
+     */
+    @Select("<script>" +
+            "SELECT * FROM orders WHERE user_id = #{userId}" +
+            "<if test='status != null'> AND order_status = #{status}</if>" +
+            " ORDER BY create_time DESC LIMIT #{offset}, #{limit}" +
+            "</script>")
+    List<Order> selectByUserIdPage(@Param("userId") String userId,
+                                   @Param("status") Integer status,
+                                   @Param("offset") Integer offset,
+                                   @Param("limit") Integer limit);
+
+    /**
+     * 统计用户订单数（支持状态筛选）
+     */
+    @Select("<script>" +
+            "SELECT COUNT(*) FROM orders WHERE user_id = #{userId}" +
+            "<if test='status != null'> AND order_status = #{status}</if>" +
+            "</script>")
+    Integer countByUserId(@Param("userId") String userId,
+                          @Param("status") Integer status);
+
     // ==================== 增删改 ====================
 
     @Insert("INSERT INTO orders (order_id, order_sn, user_id, user_name, total_amount, " +

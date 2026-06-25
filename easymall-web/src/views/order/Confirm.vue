@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="order-confirm-page">
     <div class="container">
       <h2 class="page-title">确认订单</h2>

@@ -1,4 +1,4 @@
-﻿import request from '@/utils/request'
+import request from '@/utils/request'
 
 // 商品基础类型
 export interface Product {
@@ -39,7 +39,7 @@ export interface ProductListParams {
 
 // 商品列表响应
 export interface ProductListResponse {
-    records: Product[]
+    list: Product[]
     total: number
     pageNum: number
     pageSize: number

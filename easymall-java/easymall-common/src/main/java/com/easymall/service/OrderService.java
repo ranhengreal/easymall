@@ -71,6 +71,12 @@ public interface OrderService {
      */
     boolean ship(String orderId, String logisticsCompany, String trackingNumber);
 
+    
+    /**
+     * 分页查询用户订单（支持状态筛选）
+     */
+    com.easymall.entity.result.PageResult<Order> getUserOrdersPage(String userId, Integer status, Integer pageNum, Integer pageSize);
+
     // ==================== 用户端支付/确认 ====================
 
     /**

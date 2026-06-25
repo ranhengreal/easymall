@@ -7,6 +7,7 @@ import com.easymall.entity.po.OrderItem;
 import com.easymall.entity.po.Product;
 import com.easymall.entity.po.ProductSku;
 import com.easymall.exception.BusinessException;
+import com.easymall.entity.result.PageResult;
 import com.easymall.mapper.OrderItemMapper;
 import com.easymall.mapper.OrderMapper;
 import com.easymall.mapper.ProductMapper;
@@ -367,7 +368,15 @@ public class OrderServiceImpl implements OrderService {
         return result > 0;
     }
 
-        // ==================== 用户端支付/确认 ====================
+            @Override
+    public PageResult<Order> getUserOrdersPage(String userId, Integer status, Integer pageNum, Integer pageSize) {
+        int offset = (pageNum - 1) * pageSize;
+        List<Order> list = orderMapper.selectByUserIdPage(userId, status, offset, pageSize);
+        Integer total = orderMapper.countByUserId(userId, status);
+        return new PageResult<>(list, total != null ? total.longValue() : 0L, pageNum, pageSize);
+    }
+
+    // ==================== 用户端支付/确认 ====================
 
     @Override
     @Transactional

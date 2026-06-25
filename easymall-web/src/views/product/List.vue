@@ -248,7 +248,7 @@ const loadProducts = async () => {
   try {
     const res = await getProductList({ pageNum: 1, pageSize: 999 })
     // 根据实际返回结构取值
-    allProducts.value = res?.records || res?.data?.records || []
+    allProducts.value = res?.list || res?.data?.list || []
     console.log('商品加载成功:', allProducts.value.length)
   } catch (error) {
     console.error('加载商品失败:', error)

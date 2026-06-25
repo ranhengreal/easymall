@@ -1,4 +1,4 @@
-﻿import request from '@/utils/request'
+import request from '@/utils/request'
 
 // 订单商品项
 export interface OrderProductItem {
@@ -13,22 +13,22 @@ export interface OrderProductItem {
 // 订单列表项
 export interface OrderItem {
     orderId: string
-    orderNo: string
+    orderSn: string
     createTime: string
     totalAmount: number
-    status: number
-    statusText: string
-    orderItems: OrderProductItem[]
+    orderStatus: number
+    orderStatusName: string
+    items: OrderProductItem[]
 }
 
 // 订单详情
 export interface OrderDetail {
     orderId: string
-    orderNo: string
+    orderSn: string
     createTime: string
     totalAmount: number
-    status: number
-    statusText: string
+    orderStatus: number
+    orderStatusName: string
     receiverName: string
     receiverPhone: string
     receiverAddress: string
@@ -38,7 +38,7 @@ export interface OrderDetail {
     payTime?: string
     shipTime?: string
     confirmTime?: string
-    orderItems: OrderProductItem[]
+    items: OrderProductItem[]
 }
 
 // 订单列表查询参数

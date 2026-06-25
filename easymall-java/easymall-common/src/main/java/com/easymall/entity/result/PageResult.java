@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PageResult<T> {
-    private List<T> records;
+    private List<T> list;
     private Long total;
     private Integer pageNum;
     private Integer pageSize;

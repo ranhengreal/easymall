@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="order-detail-page">
     <div class="container">
       <h2 class="page-title">订单详情</h2>
@@ -8,9 +8,9 @@
           <!-- 订单状态 -->
           <div class="status-section">
             <el-tag :type="statusTagType" size="large" effect="dark">
-              {{ order.statusText }}
+              {{ order.orderStatusName }}
             </el-tag>
-            <span class="order-no-label">订单号：{{ order.orderNo }}</span>
+            <span class="order-no-label">订单号：{{ order.orderSn }}</span>
           </div>
 
           <!-- 收货信息 -->
@@ -111,12 +111,12 @@
                 {{ order.shipTime }}
               </el-timeline-item>
               <el-timeline-item
-                v-if="order.confirmTime"
+                v-if="order.receiveTime"
                 timestamp="确认时间"
                 placement="top"
                 type="warning"
               >
-                {{ order.confirmTime }}
+                {{ order.receiveTime }}
               </el-timeline-item>
             </el-timeline>
           </el-card>
