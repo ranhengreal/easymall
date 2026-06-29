@@ -176,7 +176,7 @@ public class OrderServiceImpl implements OrderService {
             item.setOrderId(orderId);
             item.setProductId(product.getProductId());
             item.setProductName(product.getProductName());
-            item.setProductImage(product.getMainImage());
+            item.setProductImage(product.getMainImage() != null ? product.getMainImage() : "");
             item.setSkuId(itemDto.getSkuId());
             item.setSpecValues(specValues);
             item.setPrice(price);
@@ -212,6 +212,9 @@ public class OrderServiceImpl implements OrderService {
         order.setReceiverDistrict(dto.getReceiverDistrict());
         order.setReceiverAddress(dto.getReceiverAddress());
         order.setReceiverZip(dto.getReceiverZip());
+        order.setPayType(dto.getPayType() != null ? dto.getPayType() : 1);
+        order.setCreateTime(LocalDateTime.now());
+        order.setUpdateTime(LocalDateTime.now());
         order.setUserNote(dto.getUserNote());
 
         // 4. 保存订单

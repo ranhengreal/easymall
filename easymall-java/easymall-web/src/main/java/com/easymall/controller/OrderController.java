@@ -24,15 +24,21 @@ public class OrderController {
     private OrderService orderService;
 
     /**
-     * 获取我的订单列表
+     * 获取我的订单列表（分页 + 状态筛选）
      */
     @GetMapping("/my")
-    public Result<List<OrderDTO.Response>> getMyOrders(@CurrentUserId String userId) {
-        List<Order> list = orderService.getByUserId(userId);
-        List<OrderDTO.Response> response = list.stream()
+    public Result<PageResult<OrderDTO.Response>> getMyOrders(
+            @CurrentUserId String userId,
+            @RequestParam(defaultValue = "1") Integer pageNum,
+            @RequestParam(defaultValue = "5") Integer pageSize,
+            @RequestParam(required = false) Integer status) {
+        log.info("查询订单列表: userId={}, pageNum={}, pageSize={}, status={}", userId, pageNum, pageSize, status);
+        PageResult<Order> page = orderService.getUserOrdersPage(userId, status, pageNum, pageSize);
+        List<OrderDTO.Response> list = page.getList().stream()
                 .map(OrderDTO.Response::fromPO)
                 .toList();
-        return Result.success(response);
+        PageResult<OrderDTO.Response> result = new PageResult<>(list, page.getTotal(), page.getPageNum(), page.getPageSize());
+        return Result.success(result);
     }
 
     /**
@@ -80,6 +86,7 @@ public class OrderController {
     @PostMapping
     public Result<OrderDTO.Response> create(@Valid @RequestBody OrderDTO.Create dto,
                                             @CurrentUserId String userId) {
+        log.info("用户创建订单: userId={}, items={}", userId, dto.getItems() != null ? dto.getItems().size() : 0);
         Order order = orderService.create(dto, userId);
         log.info("用户创建订单成功: userId={}, orderId={}", userId, order.getOrderId());
         return Result.success(OrderDTO.Response.fromPO(order));
