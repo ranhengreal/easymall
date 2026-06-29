@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="order-detail-page">
     <div class="container">
       <h2 class="page-title">订单详情</h2>
@@ -30,7 +30,7 @@
             <template #header>
               <span class="card-title">商品清单</span>
             </template>
-            <el-table :data="order.orderItems" style="width: 100%" stripe>
+            <el-table :data="order.items" style="width: 100%" stripe>
               <el-table-column label="商品名称" min-width="220">
                 <template #default="{ row }">
                   <div class="product-cell">

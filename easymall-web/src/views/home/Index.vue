@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="home">
     <!-- 轮播图 -->
     <div class="banner">
@@ -103,7 +103,7 @@ const loadCategories = async () => {
 const loadHotProducts = async () => {
   try {
     const res = await getProductList({ pageNum: 1, pageSize: 8 })
-    hotProducts.value = res.records || res || []
+    hotProducts.value = res.list || []
   } catch (error) {
     console.error('加载热门商品失败:', error)
   }

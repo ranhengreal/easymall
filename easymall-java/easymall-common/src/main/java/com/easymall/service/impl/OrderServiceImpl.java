@@ -375,6 +375,13 @@ public class OrderServiceImpl implements OrderService {
     public PageResult<Order> getUserOrdersPage(String userId, Integer status, Integer pageNum, Integer pageSize) {
         int offset = (pageNum - 1) * pageSize;
         List<Order> list = orderMapper.selectByUserIdPage(userId, status, offset, pageSize);
+        // 加载每个订单的商品明细，用于前端展示数量和缩略图
+        if (list != null && !list.isEmpty()) {
+            for (Order order : list) {
+                List<OrderItem> items = orderItemMapper.selectByOrderId(order.getOrderId());
+                order.setItems(items);
+            }
+        }
         Integer total = orderMapper.countByUserId(userId, status);
         return new PageResult<>(list, total != null ? total.longValue() : 0L, pageNum, pageSize);
     }

@@ -46,7 +46,7 @@
             <div class="order-body">
               <div class="product-thumbs">
                 <div
-                  v-for="(item, index) in order.items.slice(0, 3)"
+                  v-for="(item, index) in (order.items || []).slice(0, 3)"
                   :key="index"
                   class="thumb-item"
                 >
@@ -56,12 +56,12 @@
                     @error="handleImageError"
                   />
                 </div>
-                <div v-if="order.items.length > 3" class="thumb-more">
-                  +{{ order.items.length - 3 }}
+                <div v-if="(order.items || []).length > 3" class="thumb-more">
+                  +{{ (order.items || []).length - 3 }}
                 </div>
               </div>
               <div class="order-summary">
-                <span class="product-count">共 {{ order.items.length }} 件商品</span>
+                <span class="product-count">共 {{ (order.items || []).length }} 件商品</span>
                 <span class="order-amount">
                   合计：<em>¥{{ order.totalAmount?.toFixed(2) }}</em>
                 </span>

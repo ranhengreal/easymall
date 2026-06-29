@@ -1,117 +1,16 @@
 package com.easymall.entity.dto;
 
-import jakarta.validation.constraints.*;
+import com.easymall.entity.po.Order;
+import com.easymall.entity.po.OrderItem;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 订单相关 DTO 统一管理
- */
 public class OrderDTO {
 
-    // ==================== 请求 DTO ====================
-
-    /**
-     * 创建订单请求
-     */
-    @Data
-    public static class Create {
-        @NotBlank(message = "收货人姓名不能为空")
-        @Size(min = 2, max = 50, message = "收货人姓名长度必须在2-50个字符之间")
-        private String receiverName;
-
-        @NotBlank(message = "收货人电话不能为空")
-        @Pattern(regexp = "^1[3-9]\\d{9}$", message = "手机号码格式不正确")
-        private String receiverPhone;
-
-        private String receiverProvince;
-        private String receiverCity;
-        private String receiverDistrict;
-
-        @NotBlank(message = "详细地址不能为空")
-        @Size(max = 200, message = "详细地址不能超过200个字符")
-        private String receiverAddress;
-
-        private String receiverZip;
-        private String userNote;
-
-        @NotNull(message = "订单商品不能为空")
-        @Size(min = 1, message = "至少需要一个商品")
-        private List<OrderItemCreate> items;
-
-        @Min(value = 1, message = "支付方式值范围1-3")
-        @Max(value = 3, message = "支付方式值范围1-3")
-        private Integer payType = 1;
-    }
-
-    /**
-     * 订单商品创建请求
-     */
-    @Data
-    public static class OrderItemCreate {
-        @NotBlank(message = "商品ID不能为空")
-        private String productId;
-
-        private String skuId;
-
-        @NotNull(message = "购买数量不能为空")
-        @Min(value = 1, message = "购买数量不能小于1")
-        @Max(value = 999, message = "购买数量不能大于999")
-        private Integer quantity;
-    }
-
-    /**
-     * 更新订单请求（统一接口）
-     */
-    @Data
-    public static class Update {
-        // 订单状态（0-待付款，1-待发货，2-待收货，3-已完成，4-已取消，5-售后中）
-        @Min(value = 0, message = "订单状态值范围0-5")
-        @Max(value = 5, message = "订单状态值范围0-5")
-        private Integer orderStatus;
-
-        // 支付状态（0-未支付，1-已支付，2-已退款）
-        @Min(value = 0, message = "支付状态值范围0-2")
-        @Max(value = 2, message = "支付状态值范围0-2")
-        private Integer payStatus;
-
-        // 支付方式（1-微信，2-支付宝，3-余额）
-        @Min(value = 1, message = "支付方式值范围1-3")
-        @Max(value = 3, message = "支付方式值范围1-3")
-        private Integer payType;
-
-        // 取消原因（取消订单时使用）
-        private String cancelReason;
-
-        // 注意：payTime 由后端自动生成，前端不需要传递
-
-        private String logisticsCompany;  // 物流公司
-        private String trackingNumber;    // 物流单号
-    }
-
-    /**
-     * 订单查询请求
-     */
-    @Data
-    public static class Query {
-        private String orderSn;
-        private String userName;
-        private Integer orderStatus;
-        private Integer payStatus;
-        private String startTime;
-        private String endTime;
-        private Integer pageNum = 1;
-        private Integer pageSize = 10;
-    }
-
-    // ==================== 响应 DTO ====================
-
-    /**
-     * 订单响应
-     */
     @Data
     public static class Response {
         private String orderId;
@@ -144,50 +43,94 @@ public class OrderDTO {
         private List<OrderItemResponse> items;
         private String remark;
 
-        public static Response fromPO(com.easymall.entity.po.Order po) {
-            if (po == null) return null;
-            Response response = new Response();
-            response.setOrderId(po.getOrderId());
-            response.setOrderSn(po.getOrderSn());
-            response.setUserId(po.getUserId());
-            response.setUserName(po.getUserName());
-            response.setTotalAmount(po.getTotalAmount());
-            response.setDiscountAmount(po.getDiscountAmount());
-            response.setFreightAmount(po.getFreightAmount());
-            response.setPayAmount(po.getPayAmount());
-            response.setProductTotal(po.getTotalAmount());
-            response.setPayType(po.getPayType());
-            response.setPayStatus(po.getPayStatus());
-            response.setPayTime(po.getPayTime());
-            response.setOrderStatus(po.getOrderStatus());
-            response.setReceiverName(po.getReceiverName());
-            response.setReceiverPhone(po.getReceiverPhone());
-            response.setReceiverProvince(po.getReceiverProvince());
-            response.setReceiverCity(po.getReceiverCity());
-            response.setReceiverDistrict(po.getReceiverDistrict());
-            response.setReceiverAddress(po.getReceiverAddress());
-            response.setReceiverZip(po.getReceiverZip());
-            response.setUserNote(po.getUserNote());
-            response.setCancelReason(po.getCancelReason());
-            response.setCreateTime(po.getCreateTime());
-            response.setUpdateTime(po.getUpdateTime());
-            response.setRemark(po.getRemark());
-            response.setShipTime(po.getShipTime());
-            response.setReceiveTime(po.getReceiveTime());
-
-            // 设置订单状态名称
-            String[] statusNames = {"待付款", "待发货", "待收货", "已完成", "已取消", "售后中"};
-            if (po.getOrderStatus() != null && po.getOrderStatus() >= 0 && po.getOrderStatus() <= 5) {
-                response.setOrderStatusName(statusNames[po.getOrderStatus()]);
+        public static Response fromPO(Order order) {
+            if (order == null) {
+                return null;
             }
+            Response resp = new Response();
+            resp.setOrderId(order.getOrderId());
+            resp.setOrderSn(order.getOrderSn());
+            resp.setUserId(order.getUserId());
+            resp.setUserName(order.getUserName());
+            resp.setTotalAmount(order.getTotalAmount());
+            resp.setDiscountAmount(order.getDiscountAmount());
+            resp.setFreightAmount(order.getFreightAmount());
+            resp.setPayAmount(order.getPayAmount());
+            resp.setProductTotal(order.getTotalAmount());
+            resp.setPayType(order.getPayType());
+            resp.setPayStatus(order.getPayStatus());
+            resp.setPayTime(order.getPayTime());
+            resp.setOrderStatus(order.getOrderStatus());
+            resp.setOrderStatusName(getStatusName(order.getOrderStatus()));
+            resp.setReceiverName(order.getReceiverName());
+            resp.setReceiverPhone(order.getReceiverPhone());
+            resp.setReceiverProvince(order.getReceiverProvince());
+            resp.setReceiverCity(order.getReceiverCity());
+            resp.setReceiverDistrict(order.getReceiverDistrict());
+            resp.setReceiverAddress(order.getReceiverAddress());
+            resp.setReceiverZip(order.getReceiverZip());
+            resp.setUserNote(order.getUserNote());
+            resp.setCancelReason(order.getCancelReason());
+            resp.setCreateTime(order.getCreateTime());
+            resp.setUpdateTime(order.getUpdateTime());
+            resp.setRemark(order.getRemark());
+            resp.setShipTime(order.getShipTime());
+            resp.setReceiveTime(order.getReceiveTime());
+            // Map items
+            if (order.getItems() != null && !order.getItems().isEmpty()) {
+                List<OrderItemResponse> itemList = new ArrayList<>();
+                for (OrderItem item : order.getItems()) {
+                    OrderItemResponse itemResp = new OrderItemResponse();
+                    itemResp.setItemId(item.getItemId());
+                    itemResp.setOrderId(item.getOrderId());
+                    itemResp.setProductId(item.getProductId());
+                    itemResp.setProductName(item.getProductName());
+                    itemResp.setProductImage(item.getProductImage());
+                    itemResp.setSkuId(item.getSkuId());
+                    itemResp.setSpecValues(item.getSpecValues());
+                    itemResp.setPrice(item.getPrice());
+                    itemResp.setQuantity(item.getQuantity());
+                    itemResp.setTotalAmount(item.getTotalAmount());
+                    itemResp.setCreateTime(item.getCreateTime());
+                    itemList.add(itemResp);
+                }
+                resp.setItems(itemList);
+            } else {
+                resp.setItems(new ArrayList<>());
+            }
+            return resp;
+        }
 
-            return response;
+        private static String getStatusName(Integer status) {
+            String[] names = {"待付款", "待发货", "待收货", "已完成", "已取消", "售后中"};
+            if (status != null && status >= 0 && status < names.length) {
+                return names[status];
+            }
+            return "未知";
         }
     }
 
-    /**
-     * 订单商品响应
-     */
+    @Data
+    public static class Create {
+        private String receiverName;
+        private String receiverPhone;
+        private String receiverProvince;
+        private String receiverCity;
+        private String receiverDistrict;
+        private String receiverAddress;
+        private String receiverZip;
+        private String userNote;
+        private List<OrderItemCreate> items;
+        private Integer payType;
+    }
+
+    @Data
+    public static class OrderItemCreate {
+        private String productId;
+        private String skuId;
+        private Integer quantity;
+    }
+
     @Data
     public static class OrderItemResponse {
         private String itemId;
@@ -201,5 +144,27 @@ public class OrderDTO {
         private Integer quantity;
         private BigDecimal totalAmount;
         private LocalDateTime createTime;
+    }
+
+    @Data
+    public static class Query {
+        private String orderSn;
+        private String userName;
+        private Integer orderStatus;
+        private Integer payStatus;
+        private String startTime;
+        private String endTime;
+        private Integer pageNum;
+        private Integer pageSize;
+    }
+
+    @Data
+    public static class Update {
+        private Integer orderStatus;
+        private Integer payStatus;
+        private Integer payType;
+        private String cancelReason;
+        private String logisticsCompany;
+        private String trackingNumber;
     }
 }
