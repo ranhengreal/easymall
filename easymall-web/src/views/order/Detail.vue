@@ -71,7 +71,7 @@
               </div>
               <div class="amount-row">
                 <span>运费</span>
-                <span>¥{{ order.freight?.toFixed(2) }}</span>
+                <span>¥{{ order.freightAmount?.toFixed(2) }}</span>
               </div>
               <el-divider />
               <div class="amount-row total">
@@ -125,7 +125,7 @@
           <div class="action-bar">
             <el-button @click="goBack">返回订单列表</el-button>
             <el-button
-              v-if="order.status === 0"
+              v-if="order.orderStatus === 0"
               type="primary"
               :loading="submitting"
               @click="handlePay"
@@ -133,14 +133,14 @@
               去支付
             </el-button>
             <el-button
-              v-else-if="order.status === 1"
+              v-else-if="order.orderStatus === 1"
               type="info"
               disabled
             >
               待发货
             </el-button>
             <el-button
-              v-else-if="order.status === 2"
+              v-else-if="order.orderStatus === 2"
               type="success"
               :loading="submitting"
               @click="handleConfirm"
@@ -178,7 +178,7 @@ const statusTagType = computed(() => {
     3: 'success',
     4: 'danger'
   }
-  return map[order.value.status] || 'info'
+  return map[order.value.orderStatus] || 'info'
 })
 
 // 加载订单详情
